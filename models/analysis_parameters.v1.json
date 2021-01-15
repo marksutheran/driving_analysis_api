@@ -1,18 +1,87 @@
 {
-  "title": "analysis_parameters",
+  "description": "",
   "type": "object",
-  "x-tags": [
-    "configuration"
-  ],
   "properties": {
-    "id": {
-      "type": "string"
+    "ACCEL": {
+      "type": "object",
+      "properties": {
+        "LOW_THRESHOLD": {
+          "type": "number"
+        },
+        "MID_THRESHOLD": {
+          "type": "number"
+        },
+        "HI_THRESHOLD": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "LOW_THRESHOLD",
+        "MID_THRESHOLD",
+        "HI_THRESHOLD"
+      ]
+    },
+    "BRAKE": {
+      "type": "object",
+      "properties": {
+        "LOW_THRESHOLD": {
+          "type": "number"
+        },
+        "MID_THRESHOLD": {
+          "type": "number"
+        },
+        "HI_THRESHOLD": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "LOW_THRESHOLD",
+        "MID_THRESHOLD",
+        "HI_THRESHOLD"
+      ]
+    },
+    "SWERVE": {
+      "type": "object",
+      "properties": {
+        "LOW_THRESHOLD": {
+          "type": "number"
+        },
+        "MID_THRESHOLD": {
+          "type": "number"
+        },
+        "HI_THRESHOLD": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "LOW_THRESHOLD",
+        "MID_THRESHOLD",
+        "HI_THRESHOLD"
+      ]
     }
   },
-  "description": "Configuration parameters for the analysis  ",
+  "required": [
+    "ACCEL",
+    "BRAKE",
+    "SWERVE"
+  ],
   "x-examples": {
     "example-1": {
-      "id": "string"
+      "ACCEL": {
+        "LOW_THRESHOLD": 0.25,
+        "MID_THRESHOLD": 0.4,
+        "HI_THRESHOLD": 0.6
+      },
+      "BRAKE": {
+        "LOW_THRESHOLD": 0.25,
+        "MID_THRESHOLD": 0.4,
+        "HI_THRESHOLD": 0.6
+      },
+      "SWERVE": {
+        "LOW_THRESHOLD": 0.27,
+        "MID_THRESHOLD": 0.4,
+        "HI_THRESHOLD": 1.6
+      }
     }
   }
 }
