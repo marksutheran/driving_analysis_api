@@ -1,0 +1,81 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "analysis",
+    "version": "1.0",
+    "contact": {
+      "name": "Mark",
+      "email": "mark@clickdrive.io"
+    },
+    "description": "Driving analysis API  "
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1"
+    }
+  ],
+  "paths": {
+    "/data/incidents/{session}": {
+      "get": {
+        "summary": "Incidents",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./models/incidents.v1.json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "get-data-incidents",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "session",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./models/analysis_parameters.v1.json"
+              }
+            }
+          }
+        },
+        "description": "Retrieve the automated incidents for the session"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "session",
+          "in": "path",
+          "required": true,
+          "description": "session name\n"
+        }
+      ]
+    }
+  },
+  "components": {
+    "securitySchemes": {}
+  }
+}

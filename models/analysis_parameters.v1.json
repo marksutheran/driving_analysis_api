@@ -1,0 +1,18 @@
+{
+  "title": "analysis_parameters",
+  "type": "object",
+  "x-tags": [
+    "configuration"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    }
+  },
+  "description": "Configuration parameters for the analysis  ",
+  "x-examples": {
+    "example-1": {
+      "id": "string"
+    }
+  }
+}

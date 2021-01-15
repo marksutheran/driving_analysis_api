@@ -1,0 +1,132 @@
+{
+  "description": "",
+  "type": "object",
+  "x-examples": {
+    "example-1": {
+      "features": [
+        {
+          "geometry": {
+            "coordinates": [
+              1.373177,
+              103.926884
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "averageSpeed": 0,
+            "endTime": 1594343142175,
+            "incident": {
+              "category": "Jerky Cornering",
+              "peak": 0.45,
+              "severity": 2
+            },
+            "startTime": 1594343142175
+          },
+          "type": "Feature"
+        }
+      ],
+      "type": "FeatureCollection"
+    }
+  },
+  "properties": {
+    "features": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "geometry": {
+            "type": "object",
+            "properties": {
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "Point"
+                ]
+              }
+            },
+            "required": [
+              "coordinates"
+            ]
+          },
+          "properties": {
+            "type": "object",
+            "properties": {
+              "averageSpeed": {
+                "type": "number"
+              },
+              "endTime": {
+                "type": "number"
+              },
+              "incident": {
+                "type": "object",
+                "required": [
+                  "category",
+                  "peak",
+                  "severity"
+                ],
+                "properties": {
+                  "category": {
+                    "type": "string",
+                    "minLength": 1,
+                    "enum": [
+                      "Excessive Acceleration",
+                      "Excessive Braking",
+                      "Excessive Cornering",
+                      "Jerky Acceleration",
+                      "Jerky Braking",
+                      "Jerky Cornering"
+                    ]
+                  },
+                  "peak": {
+                    "type": "number"
+                  },
+                  "severity": {
+                    "type": "number"
+                  }
+                }
+              },
+              "startTime": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "averageSpeed",
+              "endTime",
+              "incident",
+              "startTime"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "Feature"
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
+      }
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "enum": [
+        "FeatureCollection"
+      ]
+    }
+  },
+  "required": [
+    "features",
+    "type"
+  ]
+}
